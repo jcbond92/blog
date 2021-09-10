@@ -1,12 +1,30 @@
 /* Colors */
 :root {
-  --lightgray: #e0e0e0;
-  --gray: #C0C0C0;
-  --darkgray: #333;
-  --navy: #17050F;
-  --blue: #082840;
-  --white: #fff;
+  --background-color: #fff;
+  --primary-color: #333;
+  --secondary-color: #536390;
+  --font-color: #333;
+  --link-color: yellow;
+  --bg-color: #fff;
+  --heading-color: #292922;
 }
+
+[data-theme="dark"] {
+  --primary-color: #9A97F3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --background-color: #161625;
+  --heading-color: #818cab;
+}
+
+
+/* fonts */
+@font-face {
+  font-family: myFirstFont;
+  src: url(sansation_light.woff);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,300&display=swap");
 
 /* Global stylesheet */
 * {
@@ -18,8 +36,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, system-ui, sans-serif;
-  color: var(--darkgray);
-  background-color: var(--white);
+  color: var(--font-color);
+  background-color: var(--background-color);
 }
 p:last-child {
   margin-bottom: 0;
@@ -34,10 +52,10 @@ p,
   line-height: 1.45;
 }
 a[href] {
-  color: var(--blue);
+  color: var(--link-color);
 }
 a[href]:visited {
-  color: var(--navy);
+  color: var(--link-color);
 }
 main {
   padding: 1rem;
@@ -46,7 +64,7 @@ main :first-child {
   margin-top: 0;
 }
 header {
-  border-bottom: 1px dashed var(--lightgray);
+  border-bottom: 1px dashed var(--background-color);
 }
 header:after {
   content: "";
@@ -63,7 +81,10 @@ table th {
 
 pre,
 code {
-  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
+    "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+    "Courier New", Courier, monospace;
   line-height: 1.5;
 }
 pre {
@@ -82,7 +103,7 @@ pre {
   -ms-hyphens: none;
   hyphens: none;
   padding: 1em;
-  margin: .5em 0;
+  margin: 0.5em 0;
   background-color: #f6f6f6;
 }
 code {
@@ -110,7 +131,7 @@ code {
 }
 .highlight-line-active {
   background-color: #444;
-  background-color: hsla(0, 0%, 27%, .8);
+  background-color: hsla(0, 0%, 27%, 0.8);
 }
 .highlight-line-add {
   background-color: #45844b;
@@ -125,6 +146,7 @@ code {
   float: left;
   margin: 1rem 0; /* 16px /16 */
   font-size: 1em; /* 16px /16 */
+  font-family: "IBM Plex Mono", monospace;
 }
 .home :link:not(:hover) {
   text-decoration: none;
@@ -171,14 +193,14 @@ code {
 .postlist-date,
 .postlist-item:before {
   font-size: 0.8125em; /* 13px /16 */
-  color: var(--darkgray);
+  color: var(--font-color);
 }
 .postlist-date {
   word-spacing: -0.5px;
 }
 .postlist-link {
-  padding-left: .25em;
-  padding-right: .25em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
   text-underline-position: from-font;
   text-underline-offset: 0;
   text-decoration-thickness: 1px;
@@ -191,7 +213,6 @@ code {
   font-weight: 700;
 }
 
-
 /* Tags */
 .post-tag {
   display: inline-flex;
@@ -203,8 +224,8 @@ code {
   margin-left: 0.6666666666667em; /* 8px /12 */
   margin-top: 0.5em; /* 6px /12 */
   margin-bottom: 0.5em; /* 6px /12 */
-  color: var(--darkgray);
-  border: 1px solid var(--gray);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
   line-height: 1.8;
@@ -215,7 +236,7 @@ a[href].post-tag:visited {
 }
 a[href].post-tag:hover,
 a[href].post-tag:focus {
-  background-color: var(--lightgray);
+  background-color: var(--primary-color);
 }
 .postlist-item > .post-tag {
   align-self: center;
@@ -235,7 +256,7 @@ a[href].post-tag:focus {
   font-family: sans-serif;
   text-decoration: none;
   font-style: normal;
-  margin-left: .1em;
+  margin-left: 0.1em;
 }
 a[href].direct-link,
 a[href].direct-link:visited {
@@ -246,4 +267,63 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
+}
+
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+
+  em {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
