@@ -4,9 +4,22 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
+<h1 class="home--title">I'm a front-end developer at <a href="https://www.truist.com/">Truist</a>. I build accessible and performant user interfaces on the web.</h1>
+<div class="home--content">
+<section class="home--content-item">
 {% set maxPosts = collections.posts.length | min(3) %}
-<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+<h2>Writing</h2>
 
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
 {% include "postslist.njk" %}
+</section>
+<section class="home--content-item">
+{% set maxPosts = collections.posts.length | min(3) %}
+<h2>Projects</h2>
+
+{% set postslist = collections.posts | head(-3) %}
+{% set postslistCounter = collections.posts | length %}
+{% include "postslist.njk" %}
+</section>
+</div>
