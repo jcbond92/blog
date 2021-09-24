@@ -362,10 +362,10 @@ input:checked + .slider:before {
 
 
 .sky-bottom-layer, .sky-top-layer, .sky-middle-layer {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: -10vh;
   z-index: -1;
-  opacity: 0.15;
+  opacity: 0.08;
   margin-left: -1000px;
   transform: rotate(180deg);
 }
