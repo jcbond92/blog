@@ -8,16 +8,20 @@
   --bg-color: #fff;
   --heading-color: #292922;
   --slider-color: #ccc;
+  --water-color: #536390;
+  --planet-color: #f48037;
 }
 
 [data-theme="dark"] {
   --primary-color: #9A97F3;
   --secondary-color: #818cab;
   --font-color: #e1e1ff;
-  --link-color: yellow;
+  --link-color: #9A97F3;
   --background-color: #161625;
   --heading-color: #818cab;
   --slider-color: #9A97F3;
+  --water-color: #9A97F3;
+  --planet-color: #fff;
 }
 
 
@@ -39,8 +43,14 @@ body {
   color: var(--font-color);
   background-color: var(--background-color);
   max-width: 1000px;
+  overflow-x: hidden;
   margin: auto;
 }
+
+body {
+  background-color: unset;
+}
+
 p:last-child {
   margin-bottom: 0;
 }
@@ -182,14 +192,14 @@ code {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  counter-increment: start-from -1;
+  // counter-increment: start-from -1;
   line-height: 1.8;
   list-style-type: none;
 }
 .postlist-item:before {
   display: inline-block;
   pointer-events: none;
-  content: "" counter(start-from, decimal-leading-zero) ". ";
+  // content: "" counter(start-from, decimal-leading-zero) ". ";
   line-height: 100%;
   text-align: right;
 }
@@ -200,6 +210,7 @@ code {
 }
 .postlist-date {
   word-spacing: -0.5px;
+  padding-top: 6px;
 }
 .postlist-link {
   padding-left: 0.25em;
@@ -207,6 +218,10 @@ code {
   text-underline-position: from-font;
   text-underline-offset: 0;
   text-decoration-thickness: 1px;
+}
+
+.postlist-link:hover {
+  text-decoration: none;
 }
 .postlist-item-active .postlist-link {
   font-weight: bold;
@@ -240,6 +255,7 @@ a[href].post-tag:visited {
 a[href].post-tag:hover,
 a[href].post-tag:focus {
   background-color: var(--primary-color);
+  color: var(--background-color);
 }
 .postlist-item > .post-tag {
   align-self: center;
@@ -341,4 +357,19 @@ input:checked + .slider:before {
 .home--title {
   margin-top: .5em;
   margin-bottom: 1em;
+  font-size: 3rem;
+}
+
+
+.sky-bottom-layer, .sky-top-layer, .sky-middle-layer {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.15;
+  margin-left: -1000px;
+  transform: rotate(180deg);
+}
+
+.sky-fill {
+  fill: var(--water-color);
 }
