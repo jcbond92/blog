@@ -1,5 +1,5 @@
 ---
-title: Simulating a Screenreader Experience with the Web Speech API
+title: Simulating a screenreader experience with the Web Speech API
 description: How and when to use screen reader only text
 date: 2021-09-25
 tags:
