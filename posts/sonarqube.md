@@ -14,10 +14,10 @@ It's a great tool, but since our codebase is mostly front-end code (e.g. React, 
 ## Simplifying with the official Docker image
 I worked for a couple of hours trying to get the `sonarqube-scanner` [Node.js package](https://www.npmjs.com/package/sonarqube-scanner) to work in our existing build process (we use Node.js on an Alpine Linux image), but for one reason or another I had trouble getting it to work when starting from a Node.js-specific image rather than a Java-specific image (which was not an ideal solution).
 
-After some research, I decided to use [SonarScanner's official Docker image](https://hub.docker.com/r/sonarsource/sonar-scanner-cli) to simplify the process. This image has `sonar-scanner` and all of it’s dependencies pre-installed, so there isn’t much to configure, other than adding your SonarQube token as a secret text credential in Jenkins. It mitigates a lot of the challenges you might face if your pipeline is primarily focused building and testing front-end code.
+After some research, I decided to use [SonarSource's official Docker image](https://hub.docker.com/r/sonarsource/sonar-scanner-cli) to simplify the process. This image has `sonar-scanner` and all of it’s dependencies pre-installed, so there isn’t much to configure, other than adding your SonarQube token as a secret text credential in Jenkins. It mitigates a lot of the challenges you might face if your pipeline is primarily focused building and testing front-end code.
 
 ## How to use the Docker image
-Using the official CLI image, you can simply switch out of your Node.js container after building and testing your code and into a SonarQube-specific container for scanning.
+Using the official `sonar-scanner` image, you can simply switch out of your Node.js container after building and testing your code and into a SonarQube-specific container for scanning.
 
 ### Steps
 1. Create a `sonar-scanner.properties` [configuration file](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/) in the root of your project
