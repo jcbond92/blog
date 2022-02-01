@@ -1,17 +1,5 @@
 /* Colors */
 :root {
-  --primary-color: #9A97F3;
-  --secondary-color: #818cab;
-  --font-color: #e1e1ff;
-  --link-color: #9A97F3;
-  --background-color: #161625;
-  --heading-color: #818cab;
-  --slider-color: #9A97F3;
-  --water-color: #9A97F3;
-  --planet-color: #fff;
-}
-
-[data-theme="light"] {
   --background-color: #fff;
   --primary-color: #333;
   --secondary-color: #536390;
@@ -19,9 +7,18 @@
   --link-color: #161625;
   --bg-color: #fff;
   --heading-color: #292922;
-  --slider-color: #ccc;
-  --water-color: #536390;
-  --planet-color: #f48037;
+  --slider-color: #f48037;
+}
+
+[data-theme="dark"] {
+  --primary-color: #9A97F3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --link-color: #9A97F3;
+  --background-color: #161625;
+  --heading-color: #818cab;
+  --slider-color: #9A97F3;
+  
 }
 
 
@@ -45,6 +42,7 @@ body {
   max-width: 1000px;
   overflow-x: hidden;
   margin: auto;
+  font-size: 16px;
 }
 
 body {
@@ -61,7 +59,8 @@ img {
 }
 p,
 .tmpl-post li {
-  line-height: 1.45;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 a[href] {
   color: var(--link-color);
@@ -130,7 +129,7 @@ table th {
   font-size: 1em; /* 16px /16 */
   font-family: "IBM Plex Mono", monospace;
 }
-.home :link:not(:hover) {
+.home :link:not(:hover), a:hover {
   text-decoration: none;
 }
 
@@ -206,17 +205,15 @@ table th {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-transform: uppercase;
-  font-size: 0.75em; /* 12px /16 */
+  font-size: 0.8rem; /* 12px /16 */
   padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
   margin-left: 0.6666666666667em; /* 8px /12 */
-  margin-top: 0.5em; /* 6px /12 */
+  margin-top: 0.3em; /* 6px /12 */
   margin-bottom: 0.5em; /* 6px /12 */
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
-  line-height: 1.8;
 }
 a[href].post-tag,
 a[href].post-tag:visited {
@@ -339,16 +336,13 @@ input:checked + .slider:before {
   font-size: 3rem;
 }
 
-
-.sky-bottom-layer, .sky-top-layer, .sky-middle-layer {
-  position: fixed;
-  bottom: -10vh;
-  z-index: -1;
-  opacity: 0.08;
-  margin-left: -1000px;
-  transform: rotate(180deg);
-}
-
-.sky-fill {
-  fill: var(--water-color);
+code {
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--primary-color);
+  font-size: 1rem;
+  color: var(--background-color);
+  padding: 3px;
+  border-radius: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
 }

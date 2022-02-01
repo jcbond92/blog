@@ -16,7 +16,7 @@ Language is a muscle, and we each have to train it. Reading is one of the best w
 ## Kid's Books as a Service
 Odyssey is kid's books as a service—sharing stories anywhere where there's an internet connection. I say "as a service" mostly as a joke, but I think that type of model has a lot of value to offer. When publishing is easy, it's not crazy to write a quick 200 word story and publish it the next day.
 
-My goal is for to make it possible for kids to self-service stories (get help pronoucing a word, have the book read itself, etc.) even when their parents or guardians are unable to sit down with them. I'm not trying to replace reading (The Giving Tree)[https://en.wikipedia.org/wiki/The_Giving_Tree] at bedtime—I want to help kids love reading all the time.
+My goal is for to make it possible for kids to self-service stories (get help pronoucing a word, have the book read itself, etc.) even when their parents or guardians are unable to sit down with them. I'm not trying to replace reading [The Giving Tree](https://en.wikipedia.org/wiki/The_Giving_Tree) at bedtime—I want to help kids love reading all the time.
 
 The stories are also the foundation that we can layer lots of educational technology onto. With just the Web Speech API, we have an efficient, safe, and affordable means to speech recognition and verbalization. That API is experimental, of course, but it's a start!
 
